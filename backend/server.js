@@ -9,7 +9,7 @@ console.log("DB URI Found:", process.env.MONGO_URI ? "YES ✅" : "NO ❌");
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const Contact = require('./models/Contact');
+const Contact = require('./models/contact');
 
 const app = express();
 
