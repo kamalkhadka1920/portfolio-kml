@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamal Raj | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
     <nav class="navbar">
         <div class="logo">KAMAL<span>.</span></div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#certificates">Certificates</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -22,8 +25,31 @@
         <div class="hero-content">
             <h4>WELCOME TO MY WORLD</h4>
             <h1>Hi, I'm <span>Kamal Raj</span></h1>
-            <h2>a Software Engineer.</h2>
-            <p>BCA Student at <strong>Kristu Jayanti (Deemed to be University)</strong>. Specializing in Python, C, MySQL, and Data Structures.</p>
+            <h2>I am a <span id="typing"></span></h2>
+
+            <p>
+                BCA Student at <strong>Kristu Jayanti University</strong>.
+                Passionate about building full stack applications using modern technologies.
+            </p>
+
+            <div class="socials">
+                <a href="https://instagram.com/kml_khadka" target="_blank" class="instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://github.com/kamalkhadka1920" target="_blank" class="github" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://discord.com/users/1321189278641950821" target="_blank" class="discord" aria-label="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn primary-btn">View Projects</a>
+                <a href="./assets/engineering-cert.pdf" target="_blank" class="btn secondary-btn">View Certificate</a>
+            </div>
         </div>
 
         <div class="hero-image">
@@ -36,22 +62,72 @@
     <section id="skills" class="section">
         <h2 class="section-title">Technical Skills</h2>
         <div class="grid">
-            <div class="card"><h3>Python</h3><p>Scripting & Automation</p></div>
-            <div class="card"><h3>C Language</h3><p>System Programming</p></div>
-            <div class="card"><h3>MySQL</h3><p>Database Management</p></div>
-            <div class="card"><h3>Data Structures</h3><p>Algorithm Logic</p></div>
+            <div class="card">
+                <h3>Python</h3>
+                <p>Scripting, problem solving, and automation with clean logic building.</p>
+            </div>
+            <div class="card">
+                <h3>C Language</h3>
+                <p>Strong foundation in programming concepts and structured coding.</p>
+            </div>
+            <div class="card">
+                <h3>MySQL</h3>
+                <p>Database design, querying, and relational data handling.</p>
+            </div>
+            <div class="card">
+                <h3>JavaScript</h3>
+                <p>Building interactive and dynamic user experiences for the web.</p>
+            </div>
+            <div class="card">
+                <h3>Node.js / Express</h3>
+                <p>Creating backend APIs and connecting applications with databases.</p>
+            </div>
+            <div class="card">
+                <h3>MongoDB</h3>
+                <p>Working with NoSQL databases to store and manage application data.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 class="section-title">Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Full Stack Portfolio Website</h3>
+                <p>
+                    Developed a responsive personal portfolio using HTML, CSS, and JavaScript.
+                    Integrated a Node.js and Express backend with MongoDB Atlas to store real-time contact form submissions.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Contact Form API</h3>
+                <p>
+                    Built a REST-based backend using Node.js and Express to receive user messages,
+                    validate request flow, and store the data securely in MongoDB.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Certificate Management Feature</h3>
+                <p>
+                    Implemented a certificate section where users can directly view verified PDF documents
+                    from the portfolio with proper deployment-compatible file handling.
+                </p>
+            </div>
         </div>
     </section>
 
     <section id="certificates" class="section">
-        <h2 class="section-title">Certifications</h2>
-        <div class="card cert">
+        <h2 class="section-title">Certificates</h2>
+        <div class="card cert-card">
+            <div class="icon">⚙️</div>
+            <h3>Digital Engineering</h3>
+            <p>Verified engineering certificate available for direct viewing.</p>
+            <span class="tag">Verified</span>
             <a href="./assets/engineering-cert.pdf" target="_blank" class="cert-view-btn">
                 View Engineering Certificate (PDF) 📄
             </a>
-            <div class="icon">⚙️</div>
-            <h3>Digital Engineering</h3>
-            <span class="tag">Verified</span>
         </div>
     </section>
 
@@ -64,6 +140,10 @@
             <button type="button" onclick="sendData()">SEND MESSAGE</button>
         </form>
     </section>
+
+    <footer class="footer">
+        <p>© 2026 Kamal Raj. All Rights Reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

@@ -6,11 +6,50 @@ window.addEventListener("scroll", function () {
     }
 });
 
+// Typing animation - slower
+const roles = ["Software Engineer", "Web Developer", "Programmer"];
+let roleIndex = 0;
+let charIndex = 0;
+let currentText = "";
+let deleting = false;
+
+function typeEffect() {
+    const typingElement = document.getElementById("typing");
+    if (!typingElement) return;
+
+    const currentRole = roles[roleIndex];
+
+    if (!deleting) {
+        currentText = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+    } else {
+        currentText = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+    }
+
+    typingElement.textContent = currentText;
+
+    if (!deleting && charIndex === currentRole.length) {
+        deleting = true;
+        setTimeout(typeEffect, 1400);
+        return;
+    }
+
+    if (deleting && charIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+    }
+
+    setTimeout(typeEffect, deleting ? 90 : 180);
+}
+
+typeEffect();
+
 // Send data to backend
 function sendData() {
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
     if (!name || !email || !message) {
         alert("Please fill all fields!");
