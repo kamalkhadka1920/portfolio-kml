@@ -6,7 +6,7 @@ window.addEventListener("scroll", function () {
     }
 });
 
-// Typing animation - slower
+// Typing animation
 const roles = ["Software Engineer", "Web Developer", "Programmer"];
 let roleIndex = 0;
 let charIndex = 0;
@@ -67,23 +67,27 @@ function sendData() {
             message: message
         })
     })
-    .then(async (response) => {
-        const data = await response.json();
+        .then(async (response) => {
+            const data = await response.json();
 
-        if (!response.ok) {
-            throw new Error(data.error || "Failed to send message");
-        }
+            if (!response.ok) {
+                throw new Error(data.error || "Failed to send message");
+            }
 
-        alert("Message Sent Successfully 🚀");
-        document.getElementById("contactForm").reset();
-    })
-    .catch((error) => {
-        alert("Error sending message ❌");
-        console.error(error);
-    });
+            alert("Message Sent Successfully 🚀");
+            document.getElementById("contactForm").reset();
+        })
+        .catch((error) => {
+            alert("Error sending message ❌");
+            console.error(error);
+        });
 }
+
+// Mobile menu toggle
 function toggleMenu(button) {
     const menu = document.querySelector(".nav-links");
+    if (!menu || !button) return;
+
     menu.classList.toggle("active");
     button.classList.toggle("active");
 }
@@ -92,6 +96,22 @@ function closeMenu() {
     const menu = document.querySelector(".nav-links");
     const button = document.querySelector(".menu-toggle");
 
-    menu.classList.remove("active");
-    button.classList.remove("active");
+    if (menu) menu.classList.remove("active");
+    if (button) button.classList.remove("active");
 }
+
+// Close mobile menu when clicking outside
+document.addEventListener("click", function (e) {
+    const menu = document.querySelector(".nav-links");
+    const button = document.querySelector(".menu-toggle");
+
+    if (!menu || !button) return;
+
+    const clickedInsideMenu = menu.contains(e.target);
+    const clickedButton = button.contains(e.target);
+
+    if (!clickedInsideMenu && !clickedButton) {
+        menu.classList.remove("active");
+        button.classList.remove("active");
+    }
+});

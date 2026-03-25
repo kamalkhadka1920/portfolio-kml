@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 :root {
@@ -20,6 +20,7 @@ html {
 body {
     background: var(--bg);
     color: var(--text);
+    overflow-x: hidden;
 }
 
 /* Navbar */
@@ -69,6 +70,43 @@ body {
     color: var(--primary);
 }
 
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #212428;
+    box-shadow: var(--shadow);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 1101;
+}
+
+.menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* Hero */
 .hero {
     display: flex;
@@ -76,7 +114,7 @@ body {
     justify-content: space-between;
     gap: 60px;
     padding: 70px 8%;
-    min-height: 90vh;
+    min-height: auto;
 }
 
 .hero-content {
@@ -109,7 +147,7 @@ body {
     min-height: 55px;
 }
 
- #typing {
+#typing {
     color: var(--primary) !important;
 }
 
@@ -206,6 +244,7 @@ body {
     justify-content: center;
     align-items: center;
     animation: fadeUp 1s ease;
+    flex-shrink: 0;
 }
 
 .image-card {
@@ -221,7 +260,7 @@ body {
     box-shadow: 0 0 25px rgba(255, 1, 79, 0.35), var(--shadow);
 }
 
-.image-card img {
+.profile-photo {
     width: 260px;
     height: 340px;
     object-fit: cover;
@@ -231,7 +270,7 @@ body {
     display: block;
 }
 
-.image-card:hover img {
+.image-card:hover .profile-photo {
     filter: grayscale(0%);
     transform: scale(1.02);
 }
@@ -395,12 +434,17 @@ button:hover {
     }
 }
 
-/* Responsive */
+/* Tablet */
 @media (max-width: 992px) {
     .hero {
         flex-direction: column-reverse;
         text-align: center;
-        gap: 40px;
+        gap: 28px;
+        padding: 55px 6%;
+    }
+
+    .hero-content {
+        max-width: 100%;
     }
 
     .hero-buttons,
@@ -414,103 +458,20 @@ button:hover {
 
     .hero-content h2 {
         font-size: 32px;
+        min-height: auto;
     }
 
-    .image-card img {
+    .profile-photo {
         width: 220px;
         height: 290px;
     }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px;
-    }
-
-    .hero-content h1 {
-        font-size: 36px;
-    }
-
-    .hero-content h2 {
-        font-size: 28px;
-    }
-
-    .section-title {
-        font-size: 34px;
-    }
-
-    .contact-box {
-        padding: 28px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 50px 5%;
-    }
 
     .section {
-        padding: 70px 5%;
-    }
-
-    .image-card img {
-        width: 190px;
-        height: 250px;
-    }
-
-    .hero-content p {
-        font-size: 15px;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
+        padding: 80px 6%;
     }
 }
-/* Premium mobile navbar */
-.menu-toggle {
-    display: none;
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    background: #212428;
-    box-shadow: var(--shadow);
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    z-index: 1101;
-}
 
-.menu-toggle span {
-    width: 20px;
-    height: 2px;
-    background: #fff;
-    border-radius: 3px;
-    transition: 0.3s ease;
-}
-
-.menu-toggle.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
+/* Mobile */
 @media (max-width: 768px) {
     .navbar {
         padding: 18px 5%;
@@ -551,40 +512,126 @@ button:hover {
         font-size: 16px;
         margin: 0;
     }
-}
-/* ===== MOBILE HERO FIX ===== */
-@media (max-width: 768px) {
 
     .hero {
-        flex-direction: column;   /* stack vertically */
+        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 40px 5%;
-        gap: 30px;
-    }
-
-    .hero-image {
-        order: -1;   /* image comes on top */
+        padding: 40px 5% 30px;
+        gap: 22px;
+        min-height: auto;
     }
 
     .hero-content {
         margin-top: 0;
+        max-width: 100%;
     }
 
-    .image-card img {
-        width: 220px;   /* smaller image */
+    .hero-image {
+        margin-bottom: 0;
     }
 
     .hero-content h1 {
-        font-size: 32px;
+        font-size: 34px;
+        margin-bottom: 8px;
     }
 
     .hero-content h2 {
         font-size: 26px;
+        margin-bottom: 16px;
+        min-height: 36px;
     }
 
     .hero-content p {
         font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    .profile-photo {
+        width: 210px;
+        height: 270px;
+    }
+
+    .socials {
+        margin-bottom: 22px;
+        gap: 14px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .section {
+        padding: 70px 5%;
+    }
+
+    .section-title {
+        font-size: 34px;
+        margin-bottom: 40px;
+    }
+
+    .contact-box {
+        padding: 28px 20px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .hero {
+        padding: 32px 5% 24px;
+        gap: 18px;
+    }
+
+    .profile-photo {
+        width: 185px;
+        height: 235px;
+    }
+
+    .hero-content h4 {
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content h2 {
+        font-size: 22px;
+        min-height: 30px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .card {
+        padding: 28px 20px;
+    }
+
+    .contact-box {
+        padding: 24px 16px;
     }
 }
