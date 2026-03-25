@@ -552,3 +552,39 @@ button:hover {
         margin: 0;
     }
 }
+/* ===== MOBILE HERO FIX ===== */
+@media (max-width: 768px) {
+
+    .hero {
+        flex-direction: column;   /* stack vertically */
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 5%;
+        gap: 30px;
+    }
+
+    .hero-image {
+        order: -1;   /* image comes on top */
+    }
+
+    .hero-content {
+        margin-top: 0;
+    }
+
+    .image-card img {
+        width: 220px;   /* smaller image */
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content h2 {
+        font-size: 26px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+}
