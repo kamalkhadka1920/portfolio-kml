@@ -1,7 +1,9 @@
 // Navbar background on scroll
 window.addEventListener("scroll", function () {
     const navbar = document.querySelector(".navbar");
-    navbar.classList.toggle("scrolled", window.scrollY > 50);
+    if (navbar) {
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+    }
 });
 
 // Send data to backend
@@ -26,18 +28,18 @@ function sendData() {
             message: message
         })
     })
-    .then(async response => {
+    .then(async (response) => {
         const data = await response.json();
 
         if (!response.ok) {
             throw new Error(data.error || "Failed to send message");
         }
 
-        alert("Message Sent SUCCESSFULLY ");
+        alert("Message Sent Successfully 🚀");
         document.getElementById("contactForm").reset();
     })
-    .catch(error => {
-        alert("Error sending message ");
+    .catch((error) => {
+        alert("Error sending message ❌");
         console.error(error);
     });
 }
