@@ -26,13 +26,18 @@ function sendData() {
             message: message
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        alert("Message Sent Successfully 🚀");
+    .then(async response => {
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Failed to send message");
+        }
+
+        alert("Message Sent SUCCESSFULLY ");
         document.getElementById("contactForm").reset();
     })
     .catch(error => {
-        alert("Error sending message ❌");
+        alert("Error sending message ");
         console.error(error);
     });
 }
