@@ -18,7 +18,7 @@ app.use(express.json());
 
 // Root route
 app.get("/", (req, res) => {
-  res.send("Backend is running, please wait.");
+  res.send("Backend is running.");
 });
 
 // MongoDB Atlas Connection

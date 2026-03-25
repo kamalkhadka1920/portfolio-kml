@@ -82,3 +82,16 @@ function sendData() {
         console.error(error);
     });
 }
+function toggleMenu(button) {
+    const menu = document.querySelector(".nav-links");
+    menu.classList.toggle("active");
+    button.classList.toggle("active");
+}
+
+function closeMenu() {
+    const menu = document.querySelector(".nav-links");
+    const button = document.querySelector(".menu-toggle");
+
+    menu.classList.remove("active");
+    button.classList.remove("active");
+}
