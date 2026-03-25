@@ -4,8 +4,7 @@ window.addEventListener("scroll", function () {
     navbar.classList.toggle("scrolled", window.scrollY > 50);
 });
 
-
-// Send data to backend (Node.js API)
+// Send data to backend
 function sendData() {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -16,7 +15,7 @@ function sendData() {
         return;
     }
 
-    fetch("http://localhost:5000/contact", {   // Your backend URL
+    fetch("https://portfolio-kml.onrender.com/contact", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
